@@ -1,0 +1,13 @@
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\bin\Debug\EnvControl.dll
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\bin\Debug\EnvControl.pdb
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\obj\Debug\EnvControl.g.cs
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\obj\Debug\SessionControl.g.cs
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\obj\Debug\EnvControl_MarkupCompile.cache
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\obj\Debug\EnvControl_MarkupCompile.lref
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\obj\Debug\EnvControl.baml
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\obj\Debug\SessionControl.baml
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\obj\Debug\EnvControl.g.resources
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\obj\Debug\EnvControl.Properties.Resources.resources
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\obj\Debug\EnvControls.csproj.GenerateResource.Cache
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\obj\Debug\EnvControl.dll
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\EnvControl\obj\Debug\EnvControl.pdb

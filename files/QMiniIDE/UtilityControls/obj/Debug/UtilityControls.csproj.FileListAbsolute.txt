@@ -1,0 +1,14 @@
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\bin\Debug\UtilityControls.dll
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\bin\Debug\UtilityControls.pdb
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\obj\Debug\UtilityControl.g.cs
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\obj\Debug\UtilityControls_MarkupCompile.cache
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\obj\Debug\UtilityControls_MarkupCompile.lref
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\obj\Debug\UtilityControl.baml
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\obj\Debug\UtilityControls.g.resources
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\obj\Debug\UtilityControls.Properties.Resources.resources
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\obj\Debug\UtilityControls.csproj.GenerateResource.Cache
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\obj\Debug\UtilityControls.dll
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\obj\Debug\UtilityControls.pdb
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\obj\Debug\HelpControl.g.cs
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\UtilityControls\obj\Debug\HelpControl.baml

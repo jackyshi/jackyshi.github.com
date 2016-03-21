@@ -1,0 +1,13 @@
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\bin\Debug\ConsoleControls.dll
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\bin\Debug\ConsoleControls.pdb
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\obj\Debug\ConsoleControls_MarkupCompile.cache
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\obj\Debug\ConsoleControls_MarkupCompile.lref
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\obj\Debug\ConsoleControls.g.resources
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\obj\Debug\ConsoleControls.Properties.Resources.resources
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\obj\Debug\ConsoleControls.csproj.GenerateResource.Cache
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\obj\Debug\ConsoleControls.dll
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\obj\Debug\ConsoleControls.pdb
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\obj\Debug\ConsoleControl.g.cs
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\obj\Debug\ConsoleControl.baml
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\obj\Debug\ConsoleContainer.g.cs
+C:\Users\Jacky\Documents\Visual Studio 2015\Projects\QMiniIDE\ConsoleControls\obj\Debug\ConsoleContainer.baml

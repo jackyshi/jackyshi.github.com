@@ -1,0 +1,12 @@
+﻿<UserControl x:Class="ConsoleControl.ConsoleControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ConsoleControl"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300"  Loaded="LaunchChildProcess">
+    <Grid x:Name="consolegrid">
+        <WindowsFormsHost x:Name="windowsFormsHost" HorizontalAlignment="Left" Height="300" Margin="10,10,0,0" VerticalAlignment="Top" Width="865"/>
+    </Grid>
+</UserControl>

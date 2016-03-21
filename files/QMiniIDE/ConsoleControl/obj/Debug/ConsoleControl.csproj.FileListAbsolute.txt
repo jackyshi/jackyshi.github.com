@@ -1,0 +1,11 @@
+c:\Users\Jacky\documents\visual studio 2015\Projects\QMiniIDE\ConsoleControl\bin\Debug\ConsoleControl.dll
+c:\Users\Jacky\documents\visual studio 2015\Projects\QMiniIDE\ConsoleControl\bin\Debug\ConsoleControl.pdb
+c:\Users\Jacky\documents\visual studio 2015\Projects\QMiniIDE\ConsoleControl\obj\Debug\ConsoleControl.g.cs
+c:\Users\Jacky\documents\visual studio 2015\Projects\QMiniIDE\ConsoleControl\obj\Debug\ConsoleControl_MarkupCompile.cache
+c:\Users\Jacky\documents\visual studio 2015\Projects\QMiniIDE\ConsoleControl\obj\Debug\ConsoleControl_MarkupCompile.lref
+c:\Users\Jacky\documents\visual studio 2015\Projects\QMiniIDE\ConsoleControl\obj\Debug\ConsoleControl.baml
+c:\Users\Jacky\documents\visual studio 2015\Projects\QMiniIDE\ConsoleControl\obj\Debug\ConsoleControl.g.resources
+c:\Users\Jacky\documents\visual studio 2015\Projects\QMiniIDE\ConsoleControl\obj\Debug\ConsoleControl.Properties.Resources.resources
+c:\Users\Jacky\documents\visual studio 2015\Projects\QMiniIDE\ConsoleControl\obj\Debug\ConsoleControl.csproj.GenerateResource.Cache
+c:\Users\Jacky\documents\visual studio 2015\Projects\QMiniIDE\ConsoleControl\obj\Debug\ConsoleControl.dll
+c:\Users\Jacky\documents\visual studio 2015\Projects\QMiniIDE\ConsoleControl\obj\Debug\ConsoleControl.pdb
