@@ -1,17 +1,17 @@
 library(shiny)
 
 shinyUI(fluidPage(
-  titlePanel("Capital Gurantee Note - 10yr Constant Maturity Swap"),
+  titlePanel("Capital Guarantee Note - 10yr Constant Maturity Swap"),
   sidebarLayout(
     
     sidebarPanel(
       h4("Model Swap Rate"),
-      actionButton("goEst", "Do Vasicek Maximum Likelihood Estimation"),
+      actionButton("goEst", "Do Vasicek OLS and MLE"),
       h4("Call Price Simulation"),
       actionButton("goMC", "Do Monte Carlo Simulation"),
       sliderInput("n", "Strike Price:",
                   min = 0.5, max = 5, value = 2.5, step = 0.5),
-      h4("PGN Struture (3 year)"),
+      h4("PGN Structure (3 year)"),
       column(6,textInput("coupon", "Coupon", value=1)),
       column(6,textInput("par", "Par", value=100)),
       sliderInput("strike", "Strike Price:",

@@ -1,5 +1,6 @@
 library(shiny)
 library(lubridate)
+library(ggplot2)
 
 VASICEKnegloglike<-function(param,data,times)
 { 
@@ -42,8 +43,8 @@ MCCall<-function(d, T, Pparam, K, r0, rfree)
 MCDelta<-function(T,K, r, rfree)
 {
   d<-500
-  ru<-r+0.01
-  rd<-r-0.01
+  ru<-r+0.5
+  rd<-r-0.5
   cu<-MCCall(d, T, VASparam , K, ru, rfree)
   cd<-MCCall(d, T, VASparam , K, rd, rfree)
   delt<-(cu-cd)/(ru-rd)
@@ -145,10 +146,19 @@ shinyServer(function(input, output) {
     
     # plot the data (or more accurately, the short rate)
     
-    plot(dates[2:(N+1)],data,type='l', xlab="date", ylab="10 USD mid swap rate", main="10 USD mid swap rate 2000-2015")
-    abline(h=thetaadj, lty=3)
-    text(dates[30], thetaadj, round(thetaadj,4))
+    #plot(dates[2:(N+1)],data,type='l', xlab="date", ylab="10 USD mid swap rate", main="10 USD mid swap rate 2000-2015")
+    #abline(h=thetaadj, lty=3)
+    #text(dates[30], thetaadj, round(thetaadj,4))
     
+    res<-data.frame(Date=dates[2:(N+1)], Rate=data)
+    ggplot(data=res, aes(x=Date, y=Rate)) +
+      geom_line() +
+      geom_hline(yintercept = thetaadj) + 
+      annotate("text", label = round(thetaadj,4), x=dates[30], y=thetaadj, size=5, colour = "blue") +
+      xlab("Date") +
+      ylab("10 UsD swap rate") +
+      ggtitle("10 USD swap rate 2000-2015") +
+      theme(text = element_text(size=15))
   })
   
   output$MCvalues <- renderTable({
@@ -178,10 +188,21 @@ shinyServer(function(input, output) {
     
     if (v$doMCPlot == FALSE) return()
     
-    plot(KArray,tstCall,type='l', xlab="Strike", ylab="Call Price", main="10 USD mid swap rate call price")
     index<-as.integer(input$n/0.5)+1
-    abline(v=KArray[index],h=tstCall[index], lty=3)
-    text(KArray[index], tstCall[index], tstCall[index])
+    #plot(KArray,tstCall,type='l', xlab="Strike", ylab="Call Price", main="10 USD mid swap rate call price")
+    #abline(v=KArray[index],h=tstCall[index], lty=3)
+    #text(KArray[index], tstCall[index], tstCall[index])
+    
+    res<-data.frame(Strike=KArray, CallPx=tstCall)
+    ggplot(data=res, aes(x=Strike, y=CallPx)) +
+      geom_line() +
+      geom_hline(yintercept = tstCall[index], linetype='dotdash') + 
+      geom_vline(xintercept = KArray[index], linetype='dotdash') + 
+      annotate("text", label = tstCall[index], x=KArray[index], y=tstCall[index], size=5, colour = "blue") +
+      xlab("Strike") +
+      ylab("Call Price") +
+      ggtitle("10 USD mid swap rate call pice") +
+      theme(text = element_text(size=15))
   })
   
   output$prate <- renderText({
@@ -220,7 +241,15 @@ shinyServer(function(input, output) {
         payOff[i]<-notePxPV+max(rArray[i]-as.numeric(input$strike),0)*ppRate
       }
       
-      plot(rArray,payOff,type='l', xlab="Swap Rate", ylab="Payoff", main="Payoff of PGN")
+      #plot(rArray,payOff,type='l', xlab="Swap Rate", ylab="Payoff", main="Payoff of PGN")
+    
+      res<-data.frame(rate=rArray, pf=payOff)
+      ggplot(data=res, aes(x=rate, y=pf)) +
+        geom_line() +
+        xlab("Swap Rate") +
+        ylab("Payoff") +
+        ggtitle("Payoff of PGN") +
+        theme(text = element_text(size=15))
     }
   })
   
@@ -233,8 +262,8 @@ shinyServer(function(input, output) {
     m<-3*d
     rfree<-0.008
     r <- rep(0,m)  
-    delt <- rep(0,m)  
-    cash <- rep(0,m)
+    delt <- rep(0,m+1)  
+    cash <- rep(0,m+1)
     r[1] <- obs[N+1]        # set starting point 
     delt[1] <- MCDelta(3, input$strike, r[1], rfree)
     cash[1] <- 100
@@ -246,8 +275,18 @@ shinyServer(function(input, output) {
       delt[i+1]<- MCDelta(tau, input$strike, r[i+1], rfree)
       cash[i+1]<- exp(rfree*dt)*cash[i] - (delt[i+1]-delt[i])*r[i+1]
     }
+    
+    HedgeValue=exp(rfree*dt)*cash[m] + delt[m]*r[m]
+    cash[m+1] = HedgeValue - max(r[m]-2.5,0)
+    
+    if(r[m]> 2.5) {
+      delt[m+1]=1
+    } else {
+      delt[m+1]=0
+    }
+  
     deltHedges<<-data.frame(
-      Period = 1:m,
+      Period = 0:m,
       Delta = delt, 
       Cash = cash,
       stringsAsFactors=FALSE)
@@ -256,6 +295,14 @@ shinyServer(function(input, output) {
   output$dhplot <- renderPlot({
     
     if (v$doHedge == FALSE) return()
-    plot(deltHedges$Period,deltHedges$Cash,type='h', xlab="Period", ylab="Cash", main="Delta Hedge Cash Flow")
+    #plot(deltHedges$Period,deltHedges$Cash,type='h', xlab="Period", ylab="Cash", main="Delta Hedge Cash Flow")
+    
+    res<-data.frame(pd=deltHedges$Period, dh=deltHedges$Cash)
+    ggplot(data=res, aes(x=pd, y=dh)) +
+      geom_bar(stat="identity") +
+      xlab("Period") +
+      ylab("Cash") +
+      ggtitle("Delta Hedge Cash Flow") +
+      theme(text = element_text(size=15))
   })
 })
