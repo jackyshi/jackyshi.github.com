@@ -1,0 +1,94 @@
+q)t:([]ric:`a`b`c`b`d`d`c;side:`B`B`B`B`S`S`S;qty:1000 2000 500 300 5000 4500 600;ordType:`M`M`L`L`L`M`L)
+q)t
+ric side qty  ordType
+---------------------
+a   B    1000 M
+b   B    2000 M
+c   B    500  L
+b   B    300  L
+d   S    5000 L
+d   S    4500 M
+c   S    600  L
+
+q)update cat:(,')[string ric;string side] from t
+ric side qty  ordType cat
+--------------------------
+a   B    1000 M       "aB"
+b   B    2000 M       "bB"
+c   B    500  L       "cB"
+b   B    300  L       "bB"
+d   S    5000 L       "dS"
+d   S    4500 M       "dS"
+c   S    600  L       "cS"
+
+
+q)t1:select sum qty by cat from t
+q)t1:update alloc:900 2100 500 500 5000 from t1
+q)t1
+cat | qty  alloc
+----| ----------
+"aB"| 1000 900
+"bB"| 2300 2100
+"cB"| 500  500
+"cS"| 600  500
+"dS"| 9500 5000
+
+q)`cat xkey `t
+cat | ric side qty  ordType
+----| ---------------------
+"aB"| a   B    1000 M
+"bB"| b   B    2000 M
+"cB"| c   B    500  L
+"bB"| b   B    300  L
+"dS"| d   S    5000 L
+"dS"| d   S    4500 M
+"cS"| c   S    600  L
+
+q)select total:sums qty, qty by cat from t
+cat | total     qty
+----| -------------------
+"aB"| ,1000     ,1000
+"bB"| 2000 2300 2000 300
+"cB"| ,500      ,500
+"cS"| ,600      ,600
+"dS"| 5000 9500 5000 4500
+
+q)lj[select total:sums qty, qty by cat from t;delete qty from t1]
+cat | total     qty       alloc
+----| -------------------------
+"aB"| ,1000     ,1000     900
+"bB"| 2000 2300 2000 300  2100
+"cB"| ,500      ,500      500
+"cS"| ,600      ,600      500
+"dS"| 5000 9500 5000 4500 5000
+q)t2:lj[select total:sums qty, qty by cat from t;delete qty from t1]
+
+
+q)t2
+cat | total     qty       alloc
+----| -------------------------
+"aB"| ,1000     ,1000     900
+"bB"| 2000 2300 2000 300  2100
+"cB"| ,500      ,500      500
+"cS"| ,600      ,600      500
+"dS"| 5000 9500 5000 4500 5000
+
+q)update `$cat, loc:deltas each alloc&total from t2
+cat| total     qty       alloc loc
+---| ----------------------------------
+aB | ,1000     ,1000     900   ,900
+bB | 2000 2300 2000 300  2100  2000 100
+cB | ,500      ,500      500   ,500
+cS | ,600      ,600      500   ,500
+dS | 5000 9500 5000 4500 5000  5000 0
+
+q)ungroup update `$cat, loc:deltas each alloc&total from t2
+cat total qty  alloc loc
+-------------------------
+aB  1000  1000 900   900
+bB  2000  2000 2100  2000
+bB  2300  300  2100  100
+cB  500   500  500   500
+cS  600   600  500   500
+dS  5000  5000 5000  5000
+dS  9500  4500 5000  0
