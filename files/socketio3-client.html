@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script type="text/javascript" src="//cdn.bootcss.com/jquery/3.1.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.bootcss.com/socket.io/1.5.1/socket.io.min.js"></script>
+</head>
+<body>
+<div id="log">
+    <form id="emit">
+        <input id="emit_data" type="text" value="Hello there">
+        <input type="submit" value="Go">
+    </form>
+    <form id="broadcast">
+        <input id="broadcast_data" type="text" value="broadcast there">
+        <input type="submit" value="Go">
+    </form>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        let namespace = '/test';
+        let socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port + namespace);
+        socket.on('my response', function(msg) {
+            console.debug('data receive', msg);
+            $('#log').append('<p>Received: ' + msg.data + '</p>');
+        });
+        $('form#emit').submit(function(event) {
+            console.debug('my event');
+            socket.emit('my event', {data: $('#emit_data').val()});
+            return false;
+        });
+        $('form#broadcast').submit(function(event) {
+            console.debug('my broadcast event');
+            socket.emit('my broadcast event', {data: $('#broadcast_data').val()});
+            return false;
+        });
+    });
+</script>
+</body>
+</html>
