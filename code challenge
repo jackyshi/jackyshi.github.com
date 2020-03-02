@@ -1,0 +1,37 @@
+Question: Calculate the allocation for each counterparty by FIFO logic
+q)t:([]cpty:`A`B`A`C;side:`B`S`S`B;qty:10 5 2 3)
+q)t
+cpty side qty
+-------------
+A    B    10 
+B    S    5  
+A    S    2  
+C    B    3  
+
+Answers:
+
+Step 1, get buy and sell trades to dictionary
+q)b:exec cpty,qty from t where side=`B
+q)buys:(b`cpty)!b`qty
+q)buys
+A| 10
+C| 3
+
+q)s:exec cpty,qty from t where side=`S
+q)sells:(s`cpty)!s`qty
+q)sells
+B| 5
+A| 2
+
+Step 2, iterate the buy and sell trades and calculate the allocation for each pair
+q)r:deltas each deltas sums[buys] &\: sums[sells]
+ | B A
+-| ---
+A| 5 2
+C| 0 0
+
+Step 3, calculate the remaining quantity for each counterparty
+q)select buys[`A] - sum A from r
+x| 3
+q)select buys[`C] - sum C from r
+x| 3
